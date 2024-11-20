@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
+  height: ${({ theme }) => theme.spaces['8xl']}px;
   background: rgb(100, 111, 212);
   background: linear-gradient(
     90deg,

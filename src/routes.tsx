@@ -1,5 +1,6 @@
 import { Layout } from '@/components/layout';
 import { RoutesPath } from '@/constants/routes-path';
+import { HomePage } from '@/pages/home/';
 
 export const routes = [
   {
@@ -8,7 +9,7 @@ export const routes = [
     children: [
       {
         path: RoutesPath.Home,
-        element: <div>Home</div>,
+        element: <HomePage />,
       },
       {
         path: RoutesPath.TaskBoard,

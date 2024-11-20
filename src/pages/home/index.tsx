@@ -1,0 +1,24 @@
+import { useNavigate } from 'react-router-dom';
+
+import welcomeBanner from '@/assets/welcom-banner.png';
+import { RoutesPath } from '@/constants/routes-path';
+import { StyledButton, StyledText, StyledTitle } from '@/pages/home/styled';
+
+export const HomePage = () => {
+  const navigate = useNavigate();
+
+  const description =
+    'Organize, plan, and collaborate on tasks with Your todo list. Your\u00A0busy life deserves this.You can manage checklist and your goal.';
+
+  const handleClick = () => {
+    navigate(RoutesPath.TaskBoard);
+  };
+  return (
+    <>
+      <img src={welcomeBanner} alt="welcom-banner" />
+      <StyledTitle>Manage your tasks</StyledTitle>
+      <StyledText>{description}</StyledText>
+      <StyledButton onClick={handleClick}>Get started</StyledButton>
+    </>
+  );
+};

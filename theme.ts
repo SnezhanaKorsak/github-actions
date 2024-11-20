@@ -32,7 +32,7 @@ const fontSizes = {
 
 const weights = {
   bold: 600,
-  medium: 400,
+  medium: 500,
   regular: 300,
 };
 
@@ -43,6 +43,7 @@ const darkBlue = '#242F9B';
 const lightBlue = '#DBDFFD';
 const primaryAccent = '#646FD4';
 const secondaryAccent = '#9BA3EB';
+const accentTextColor = '#8D93AB';
 
 export const baseTheme = {
   primaryFont,
@@ -57,5 +58,6 @@ export const baseTheme = {
     lightBlue,
     primaryAccent,
     secondaryAccent,
+    accentTextColor,
   },
 };
