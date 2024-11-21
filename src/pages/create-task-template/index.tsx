@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { DoneButton } from '@/components/buttons/done-button';
+import { ExitButton } from '@/components/buttons/exit-botton';
 import { TaskCheckbox } from '@/components/task-checkbox';
 import {
   StyledAddTaskButton,
@@ -8,6 +10,7 @@ import {
   StyledField,
   StyledInput,
   StyledInputButtonBlock,
+  StyledInputIconBlock,
   StyledInputWithButton,
 } from '@/pages/create-task-template/styled';
 import { Task } from '@/types/index';
@@ -18,9 +21,12 @@ export const CreateTaskTemplate = () => {
   const [taskName, setTaskName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [tasksList, setTasksList] = useState<Task[]>([]);
+  const [error, setError] = useState<boolean>(true);
 
-  const onChangeCategory = (e: ChangeEvent<HTMLInputElement>) =>
+  const onChangeCategory = (e: ChangeEvent<HTMLInputElement>) => {
+    setError(false);
     setCategory(e.target.value);
+  };
 
   const onChangeDescription = (e: ChangeEvent<HTMLInputElement>) =>
     setDescription(e.target.value);
@@ -66,11 +72,23 @@ export const CreateTaskTemplate = () => {
     }
   };
 
+  const checkRequiredField = (e: ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.value) {
+      setError(true);
+    }
+  };
+
   return (
     <StyledContainer>
       <StyledField>
         Category:
-        <StyledInput type="text" value={category} onChange={onChangeCategory} />
+        <StyledInput
+          type="text"
+          value={category}
+          onChange={onChangeCategory}
+          onBlur={checkRequiredField}
+          error={error}
+        />
       </StyledField>
 
       <StyledField>
@@ -84,14 +102,14 @@ export const CreateTaskTemplate = () => {
 
       <StyledField>
         Task:
-        <StyledInputButtonBlock>
+        <StyledInputIconBlock>
           <StyledInputWithButton
             type="text"
             value={taskName}
             onChange={onChangeTaskNameInput}
           />
           <StyledAddTaskButton onClick={addTask}>+</StyledAddTaskButton>
-        </StyledInputButtonBlock>
+        </StyledInputIconBlock>
       </StyledField>
 
       <TaskCheckbox
@@ -100,6 +118,12 @@ export const CreateTaskTemplate = () => {
         changeTaskName={changeTaskName}
         changeTaskStatus={changeTaskStatus}
       />
+
+      <StyledInputButtonBlock>
+        <DoneButton isError={error} />
+      </StyledInputButtonBlock>
+
+      <ExitButton />
     </StyledContainer>
   );
 };

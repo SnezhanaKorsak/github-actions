@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { Outlet, useLocation } from 'react-router-dom';
 
 import { Header } from '@/components/header';
@@ -14,6 +15,7 @@ export const Layout = () => {
         <StyledContainer>
           <Outlet />
         </StyledContainer>
+        <Toaster position="top-right" />
       </StyledWrapper>
     </>
   );
