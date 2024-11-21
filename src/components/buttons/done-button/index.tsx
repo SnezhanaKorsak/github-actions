@@ -7,9 +7,13 @@ import { RoutesPath } from '@/constants/routes-path';
 
 type Props = {
   isError: boolean;
+  saveTaskToCategory: () => void;
 };
 
-export const DoneButton: React.FC<Props> = ({ isError }) => {
+export const DoneButton: React.FC<Props> = ({
+  isError,
+  saveTaskToCategory,
+}) => {
   const navigate = useNavigate();
   const successText = 'The task has been successfully created';
   const errorText = 'The field must be filled in';
@@ -17,6 +21,7 @@ export const DoneButton: React.FC<Props> = ({ isError }) => {
   const handleClick = () => {
     if (!isError) {
       toast.success(successText);
+      saveTaskToCategory();
       navigate(RoutesPath.TaskBoard);
       return;
     }

@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { DoneButton } from '@/components/buttons/done-button';
 import { ExitButton } from '@/components/buttons/exit-botton';
 import { TaskCheckbox } from '@/components/task-checkbox';
+import { useAppDispatch } from '@/hooks/redux';
 import {
   StyledAddTaskButton,
   StyledContainer,
@@ -13,10 +14,13 @@ import {
   StyledInputIconBlock,
   StyledInputWithButton,
 } from '@/pages/create-task-template/styled';
-import { Task } from '@/types/index';
+import { createTaskCategory } from '@/store/task-categories/slice';
+import { Category, Task } from '@/types/index';
 import { filterTaskById, findTaskById } from '@/utils/tasks';
 
 export const CreateTaskTemplate = () => {
+  const dispatch = useAppDispatch();
+
   const [category, setCategory] = useState<string>('');
   const [taskName, setTaskName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -78,6 +82,15 @@ export const CreateTaskTemplate = () => {
     }
   };
 
+  const saveTaskToCategory = () => {
+    const taskCategory: Category = {
+      category,
+      description,
+      tasksList,
+    };
+    dispatch(createTaskCategory(taskCategory));
+  };
+
   return (
     <StyledContainer>
       <StyledField>
@@ -120,7 +133,7 @@ export const CreateTaskTemplate = () => {
       />
 
       <StyledInputButtonBlock>
-        <DoneButton isError={error} />
+        <DoneButton isError={error} saveTaskToCategory={saveTaskToCategory} />
       </StyledInputButtonBlock>
 
       <ExitButton />
