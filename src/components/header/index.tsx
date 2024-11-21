@@ -5,11 +5,11 @@ import {
   StyledTaskCount,
   StyledText,
 } from '@/components/header/styled';
-import { dateFormat } from '@/utils/date-format';
+import { index } from '@/utils/date-format';
 
 export const Header = () => {
   const today = new Date();
-  const formatedData = dateFormat(today);
+  const formatedData = index(today);
 
   return (
     <StyledHeader>

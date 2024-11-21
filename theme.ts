@@ -44,6 +44,8 @@ const lightBlue = '#DBDFFD';
 const primaryAccent = '#646FD4';
 const secondaryAccent = '#9BA3EB';
 const accentTextColor = '#8D93AB';
+const accentPinkColor = '#D25EB0';
+const lightGray = '#CCCCCC';
 
 export const baseTheme = {
   primaryFont,
@@ -59,5 +61,7 @@ export const baseTheme = {
     primaryAccent,
     secondaryAccent,
     accentTextColor,
+    accentPinkColor,
+    lightGray,
   },
 };

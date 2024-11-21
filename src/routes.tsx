@@ -1,6 +1,8 @@
 import { Layout } from '@/components/layout';
 import { RoutesPath } from '@/constants/routes-path';
+import { CreateTaskTemplate } from '@/pages/create-task-template';
 import { HomePage } from '@/pages/home/';
+import { TasksBoardPage } from '@/pages/tasks-board';
 
 export const routes = [
   {
@@ -13,7 +15,11 @@ export const routes = [
       },
       {
         path: RoutesPath.TaskBoard,
-        element: <div>TaskBoard</div>,
+        element: <TasksBoardPage />,
+      },
+      {
+        path: RoutesPath.CreateTask,
+        element: <CreateTaskTemplate />,
       },
       {
         path: RoutesPath.Tasks,
