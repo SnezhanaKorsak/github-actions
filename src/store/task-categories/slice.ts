@@ -1,13 +1,11 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { Category, Task } from '@/types/index';
+import { Category, CategoryInfo, Task } from '@/types/index';
+import { getRandomColor } from '@/utils/get-random-color';
 
 type TaskCategoriesState = {
-  [key: string]: {
-    description: string;
-    tasks: Task[];
-  };
+  [key: string]: CategoryInfo;
 };
 
 type State = {
@@ -22,15 +20,20 @@ const taskCategoriesSlice = createSlice({
   name: 'taskCategories',
   initialState,
   reducers: {
-    createTaskCategory: (state, action: PayloadAction<Category>) => {
+    createTaskCategory: (
+      state,
+      action: PayloadAction<Category & { category: string }>,
+    ) => {
       const { category, description, tasksList } = action.payload;
 
       if (category in state.data) {
         state.data[category].tasks.push(...tasksList);
       } else {
         state.data[category] = {
+          title: category,
           description,
           tasks: tasksList,
+          bgColor: getRandomColor(),
         };
       }
     },

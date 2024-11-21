@@ -1,13 +1,13 @@
+import { CategoryCardsList } from '@/components/category-cards-list';
 import { EmptyTaskBoard } from '@/components/empty-task-board';
+import { useAppSelector } from '@/hooks/redux';
+import { taskCategoriesSelector } from '@/store/task-categories/selectors';
 import { isEmptyList } from '@/utils/is-empty-list';
-//import {useAppSelector} from "@/hooks/redux";
-//import {tasksByCategorySelector} from "@/store/task-categories/selectors";
 
 export const TasksBoardPage = () => {
-  //const categories = useAppSelector(tasksByCategorySelector);
+  const categories = useAppSelector(taskCategoriesSelector);
 
-  const tasksList: string[] = [];
-  const isEmptyTasksList = isEmptyList(tasksList);
+  const isEmptyTasksList = isEmptyList(categories);
 
-  return <>{isEmptyTasksList && <EmptyTaskBoard />}</>;
+  return <>{isEmptyTasksList ? <EmptyTaskBoard /> : <CategoryCardsList />}</>;
 };

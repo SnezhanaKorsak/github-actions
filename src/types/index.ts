@@ -5,7 +5,13 @@ export type Task = {
 };
 
 export type Category = {
-  category: string;
   description: string;
   tasksList: Task[];
+};
+
+export type CategoryInfo = {
+  title: string;
+  description: string;
+  tasks: Task[];
+  bgColor: string;
 };
