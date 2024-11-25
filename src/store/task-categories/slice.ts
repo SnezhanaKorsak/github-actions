@@ -25,7 +25,8 @@ const taskCategoriesSlice = createSlice({
       state,
       action: PayloadAction<Category & { category: string }>,
     ) => {
-      const { category, description, tasksList } = action.payload;
+      const { description, tasksList } = action.payload;
+      const category = action.payload.category.toLowerCase();
 
       if (category in state.data) {
         state.data[category].tasks.push(...tasksList);

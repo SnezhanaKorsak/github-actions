@@ -9,6 +9,6 @@ export const StyledCategoryContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: 70%;
+  width: 60%;
   min-height: 70%;
 `;

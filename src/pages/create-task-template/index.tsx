@@ -42,7 +42,7 @@ export const CreateTaskTemplate = () => {
     }
     const task = {
       id: uuidv4(),
-      name: taskName,
+      name: taskName.trim(),
       status: false,
     };
     setTasksList((prevState) => [...prevState, task]);
@@ -135,7 +135,11 @@ export const CreateTaskTemplate = () => {
       />
 
       <StyledInputButtonBlock>
-        <DoneButton isError={error} saveTaskToCategory={saveTaskToCategory} />
+        <DoneButton
+          category={category}
+          isError={error}
+          saveTaskToCategory={saveTaskToCategory}
+        />
       </StyledInputButtonBlock>
 
       <ExitButton />

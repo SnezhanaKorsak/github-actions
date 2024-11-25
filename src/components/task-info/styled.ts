@@ -19,6 +19,7 @@ export const StyledTitle = styled.h1`
   margin-bottom: ${({ theme }) => theme.spaces['s']}px;
   line-height: ${({ theme }) => theme.fontSizes['medium']}px;
   text-align: center;
+  text-transform: uppercase;
 `;
 
 export const StyledButtonContainer = styled.div`

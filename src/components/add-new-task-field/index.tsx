@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, KeyboardEvent } from 'react';
 
 import {
   StyledAddTaskButton,
@@ -18,6 +18,12 @@ export const AddNewTaskFieldComponent = ({
   addTask,
   onChange,
 }: Props) => {
+  const onKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      addTask();
+    }
+  };
+
   return (
     <StyledField>
       Task:
@@ -26,6 +32,7 @@ export const AddNewTaskFieldComponent = ({
           type="text"
           value={taskName}
           onChange={onChange}
+          onKeyUp={onKeyUpHandler}
         />
         <StyledAddTaskButton onClick={addTask}>+</StyledAddTaskButton>
       </StyledInputIconBlock>

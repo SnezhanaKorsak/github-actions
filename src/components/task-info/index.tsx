@@ -55,7 +55,7 @@ export const TaskInfo = ({ category }: Props) => {
     }
     const newTask = {
       id: uuidv4(),
-      name: taskName,
+      name: taskName.trim(),
       status: false,
     };
 

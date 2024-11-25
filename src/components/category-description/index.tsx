@@ -35,6 +35,12 @@ export const CategoryDescription = ({ category, description }: Props) => {
   ) => {
     setNewDescription(event.target.value);
   };
+
+  const onFocusHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    event.target.selectionStart = event.target.selectionEnd =
+      newDescription.length;
+  };
+
   return (
     <>
       <StyledDescriptionHint>
@@ -48,6 +54,7 @@ export const CategoryDescription = ({ category, description }: Props) => {
           value={newDescription}
           onChange={onChangeDescriptionHandler}
           onBlur={offEditModeHandler}
+          onFocus={onFocusHandler}
           autoFocus={true}
         />
       ) : (

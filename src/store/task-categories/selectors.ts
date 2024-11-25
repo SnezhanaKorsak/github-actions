@@ -30,3 +30,10 @@ export const allTasksCounterSelector = createSelector(
     }, 0);
   },
 );
+
+export const categoriesSelector = createSelector(
+  taskCategoriesDataSelector,
+  ({ data }) => {
+    return Object.keys(data);
+  },
+);
