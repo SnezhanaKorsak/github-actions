@@ -10,3 +10,11 @@ export const taskCategoriesSelector = createSelector(
     return Object.entries(data);
   },
 );
+
+export const taskInfoByCategorySelector = createSelector(
+  taskCategoriesDataSelector,
+  ({ data }) =>
+    (category: string) => {
+      return data[category];
+    },
+);

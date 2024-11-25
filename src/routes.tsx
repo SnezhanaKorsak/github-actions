@@ -1,5 +1,6 @@
 import { Layout } from '@/components/layout';
 import { RoutesPath } from '@/constants/routes-path';
+import { CategoryTask } from '@/pages/category-task';
 import { CreateTaskTemplate } from '@/pages/create-task-template';
 import { HomePage } from '@/pages/home/';
 import { TasksBoardPage } from '@/pages/tasks-board';
@@ -22,8 +23,8 @@ export const routes = [
         element: <CreateTaskTemplate />,
       },
       {
-        path: RoutesPath.Tasks,
-        element: <div>Tasks</div>,
+        path: RoutesPath.Task,
+        element: <CategoryTask />,
       },
     ],
   },

@@ -21,9 +21,9 @@ import { Task } from '@/types/index';
 
 type Props = {
   items: Task[];
-  deleteTask: (id: string) => void;
-  changeTaskName: (newTaskName: string, taskId: string) => void;
-  changeTaskStatus: (newTaskStatus: boolean, taskId: string) => void;
+  deleteTask?: (id: string) => void;
+  changeTaskName?: (newTaskName: string, taskId: string) => void;
+  changeTaskStatus?: (newTaskStatus: boolean, taskId: string) => void;
 };
 
 export const TaskCheckbox: React.FC<Props> = ({
@@ -34,7 +34,7 @@ export const TaskCheckbox: React.FC<Props> = ({
 }) => {
   const [editMode, setEditMode] = useState(false);
 
-  const deleteTaskHandler = (id: string) => deleteTask(id);
+  const deleteTaskHandler = (id: string) => deleteTask && deleteTask(id);
 
   const onEditMode = () => setEditMode(true);
 
@@ -48,7 +48,9 @@ export const TaskCheckbox: React.FC<Props> = ({
 
   const onChangeTaskNameHandler = useCallback(
     (id: string) => (newTaskName: string) => {
-      changeTaskName(newTaskName, id);
+      if (changeTaskName) {
+        changeTaskName(newTaskName, id);
+      }
     },
     [changeTaskName],
   );
@@ -57,7 +59,9 @@ export const TaskCheckbox: React.FC<Props> = ({
     event: ChangeEvent<HTMLInputElement>,
     id: string,
   ) => {
-    changeTaskStatus(event.target.checked, id);
+    if (changeTaskStatus) {
+      changeTaskStatus(event.target.checked, id);
+    }
   };
 
   const itemsList = items.map(({ id, name }) => {
