@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  height: calc(100vh - ${({ theme }) => theme.spaces['8xl']}px);
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 `;
 
 export const StyledContainer = styled.div`
   width: 70%;
+  height: 100%;
   display: flex;
   flex-flow: column;
+  justify-content: center;
   align-items: center;
-  padding: ${({ theme }) => theme.spaces['l']}px;
+  padding: ${({ theme }) => theme.spaces['4xl']}px
+    ${({ theme }) => theme.spaces['l']}px;
 `;

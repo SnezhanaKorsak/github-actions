@@ -23,7 +23,7 @@ export const StyledLabel = styled.label`
 
   &::before {
     content: '';
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     border: 1px solid ${({ theme }) => theme.colors.lightGray};
     border-radius: 50%;

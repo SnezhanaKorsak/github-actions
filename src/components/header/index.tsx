@@ -5,9 +5,13 @@ import {
   StyledTaskCount,
   StyledText,
 } from '@/components/header/styled';
+import { useAppSelector } from '@/hooks/redux';
+import { allTasksCounterSelector } from '@/store/task-categories/selectors';
 import { index } from '@/utils/date-format';
 
 export const Header = () => {
+  const allTasksCounter = useAppSelector(allTasksCounterSelector);
+
   const today = new Date();
   const formatedData = index(today);
 
@@ -16,7 +20,7 @@ export const Header = () => {
       <StyledLogo>Your Todo list</StyledLogo>
       <StyledText>
         you have
-        <StyledTaskCount> 25 tasks</StyledTaskCount> !
+        <StyledTaskCount> {allTasksCounter} tasks</StyledTaskCount> !
       </StyledText>
       <StyledData>{formatedData}</StyledData>
     </StyledHeader>

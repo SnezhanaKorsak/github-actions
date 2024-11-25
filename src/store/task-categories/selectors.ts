@@ -1,5 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
+import { filterTaskByStatus } from '@/utils/tasks';
+
 import type { RootState } from '..';
 
 const taskCategoriesDataSelector = (state: RootState) => state.taskCategories;
@@ -17,4 +19,14 @@ export const taskInfoByCategorySelector = createSelector(
     (category: string) => {
       return data[category];
     },
+);
+
+export const allTasksCounterSelector = createSelector(
+  taskCategoriesDataSelector,
+  ({ data }) => {
+    return Object.values(data).reduce((count, category) => {
+      const notCompletedTasks = filterTaskByStatus(category.tasks, false);
+      return count + notCompletedTasks.length;
+    }, 0);
+  },
 );

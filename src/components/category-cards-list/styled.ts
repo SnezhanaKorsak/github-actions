@@ -7,7 +7,8 @@ export const StyledWrapper = styled.div`
 export const StyledCategoryContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   width: 70%;
-  height: 100%;
+  min-height: 70%;
 `;

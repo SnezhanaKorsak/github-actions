@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
+  position: sticky;
+  top: 0;
+
+  width: 100%;
   height: ${({ theme }) => theme.spaces['8xl']}px;
   background: rgb(100, 111, 212);
   background: linear-gradient(
@@ -10,6 +14,7 @@ export const StyledHeader = styled.header`
   );
   padding: ${({ theme }) => theme.spaces['l']}px;
   text-align: center;
+  z-index: 100;
 `;
 
 export const StyledLogo = styled.div`

@@ -10,8 +10,8 @@ export const Layout = () => {
   const isShowHeader = pathname != RoutesPath.Home;
   return (
     <>
-      {isShowHeader && <Header />}
       <StyledWrapper>
+        {isShowHeader && <Header />}
         <StyledContainer>
           <Outlet />
         </StyledContainer>
