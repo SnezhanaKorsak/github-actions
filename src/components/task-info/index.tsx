@@ -16,7 +16,7 @@ export const TaskInfo = ({ category }: Props) => {
   return (
     <StyledContainer>
       <StyledTitle>{title}</StyledTitle>
-      <CategoryDescription description={description} />
+      <CategoryDescription category={category} description={description} />
       <TaskCheckbox items={tasks} />
     </StyledContainer>
   );

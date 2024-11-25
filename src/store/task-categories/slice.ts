@@ -46,10 +46,20 @@ const taskCategoriesSlice = createSlice({
         state.data[category].tasks.push(...tasks);
       }
     },
+    changeCategoryDescription: (
+      state,
+      action: PayloadAction<{ category: string; description: string }>,
+    ) => {
+      const { category, description } = action.payload;
+      state.data[category].description = description;
+    },
   },
 });
 
 export const taskCategoriesReducer = taskCategoriesSlice.reducer;
 
-export const { createTaskCategory, addTaskToCategory } =
-  taskCategoriesSlice.actions;
+export const {
+  createTaskCategory,
+  changeCategoryDescription,
+  addTaskToCategory,
+} = taskCategoriesSlice.actions;
