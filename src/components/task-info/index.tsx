@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { AddNewTaskFieldComponent } from '@/components/add-new-task-field';
 import { AddTaskButton } from '@/components/buttons/add-task-button';
-import { ExitButton } from '@/components/buttons/exit-botton';
+import { DeleteButton } from '@/components/buttons/delete-button';
+import { ExitButton } from '@/components/buttons/exit-button';
 import { CategoryDescription } from '@/components/category-description';
 import { TaskCheckbox } from '@/components/task-checkbox';
 import {
@@ -88,7 +89,8 @@ export const TaskInfo = ({ category }: Props) => {
         <AddTaskButton addTaskField={onAddTaskMode} />
       </StyledButtonContainer>
 
-      <ExitButton />
+      <DeleteButton category={category} />
+      <ExitButton showTooltip={false} />
     </StyledContainer>
   );
 };

@@ -98,6 +98,13 @@ const taskCategoriesSlice = createSlice({
 
       state.data[category].tasks = filterTaskById(tasksList, taskId);
     },
+    deleteCategory: (state, action: PayloadAction<{ category: string }>) => {
+      const { category } = action.payload;
+
+      if (category in state.data) {
+        delete state.data[category];
+      }
+    },
   },
 });
 
@@ -110,4 +117,5 @@ export const {
   changeTaskStatusInCategory,
   addTaskToCategory,
   deleteTaskInCategory,
+  deleteCategory,
 } = taskCategoriesSlice.actions;

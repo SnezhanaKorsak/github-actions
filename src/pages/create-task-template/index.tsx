@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { AddNewTaskFieldComponent } from '@/components/add-new-task-field';
 import { DoneButton } from '@/components/buttons/done-button';
-import { ExitButton } from '@/components/buttons/exit-botton';
+import { ExitButton } from '@/components/buttons/exit-button';
 import { TaskCheckbox } from '@/components/task-checkbox';
 import { useAppDispatch } from '@/hooks/redux';
 import {
