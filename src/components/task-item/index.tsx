@@ -10,6 +10,7 @@ import {
   StyledIconContainer,
   StyledInput,
   StyledLabel,
+  StyledText,
 } from '@/components/task-item/styled';
 
 type Props = {
@@ -70,7 +71,7 @@ export const TaskItem = ({
             changeTaskName={onChangeTaskNameHandler(id)}
           />
         ) : (
-          name
+          <StyledText status={status}>{name}</StyledText>
         )}
       </StyledLabel>
       {!editMode && (

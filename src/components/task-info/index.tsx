@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { AddNewTaskFieldComponent } from '@/components/add-new-task-field';
 import { AddTaskButton } from '@/components/buttons/add-task-button';
+import { ExitButton } from '@/components/buttons/exit-botton';
 import { CategoryDescription } from '@/components/category-description';
 import { TaskCheckbox } from '@/components/task-checkbox';
 import {
@@ -16,6 +17,7 @@ import {
   addTaskToCategory,
   changeTaskNameInCategory,
   changeTaskStatusInCategory,
+  deleteTaskInCategory,
 } from '@/store/task-categories/slice';
 
 type Props = {
@@ -47,6 +49,7 @@ export const TaskInfo = ({ category }: Props) => {
 
   const addTask = () => {
     if (!taskName) {
+      setAddTaskMode(false);
       return;
     }
     const newTask = {
@@ -57,6 +60,11 @@ export const TaskInfo = ({ category }: Props) => {
 
     dispatch(addTaskToCategory({ category, task: newTask }));
     setAddTaskMode(false);
+    setTaskName('');
+  };
+
+  const deleteTask = (taskId: string) => {
+    dispatch(deleteTaskInCategory({ category, taskId }));
   };
 
   return (
@@ -67,7 +75,7 @@ export const TaskInfo = ({ category }: Props) => {
         items={tasks}
         changeTaskName={changeTaskName}
         changeTaskStatus={changeTaskStatus}
-        deleteTask={() => {}}
+        deleteTask={deleteTask}
       />
       {addTaskMode && (
         <AddNewTaskFieldComponent
@@ -79,6 +87,8 @@ export const TaskInfo = ({ category }: Props) => {
       <StyledButtonContainer>
         <AddTaskButton addTaskField={onAddTaskMode} />
       </StyledButtonContainer>
+
+      <ExitButton />
     </StyledContainer>
   );
 };

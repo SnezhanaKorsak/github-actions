@@ -67,3 +67,10 @@ export const StyledButton = styled.button`
   font-size: ${({ theme }) => theme.fontSizes['xxsmall']}px;
   cursor: pointer;
 `;
+
+export const StyledText = styled.div<{ status: boolean }>`
+  font-weight: ${({ theme }) => theme.weights['regular']};
+  font-size: ${({ theme }) => theme.fontSizes['xsmall']}px;
+  text-decoration: ${({ status }) => (status ? 'line-through' : 'none')};
+  text-decoration-thickness: 1px;
+`;

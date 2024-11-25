@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { Category, CategoryInfo, Task } from '@/types/index';
 import { getRandomColor } from '@/utils/get-random-color';
-import { findTaskById } from '@/utils/tasks';
+import { filterTaskById, findTaskById } from '@/utils/tasks';
 
 type TaskCategoriesState = {
   [key: string]: CategoryInfo;
@@ -86,6 +86,18 @@ const taskCategoriesSlice = createSlice({
         editableTask.status = newTaskStatus;
       }
     },
+    deleteTaskInCategory: (
+      state,
+      action: PayloadAction<{
+        category: string;
+        taskId: string;
+      }>,
+    ) => {
+      const { category, taskId } = action.payload;
+      const tasksList = state.data[category].tasks;
+
+      state.data[category].tasks = filterTaskById(tasksList, taskId);
+    },
   },
 });
 
@@ -97,4 +109,5 @@ export const {
   changeTaskNameInCategory,
   changeTaskStatusInCategory,
   addTaskToCategory,
+  deleteTaskInCategory,
 } = taskCategoriesSlice.actions;
