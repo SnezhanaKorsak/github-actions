@@ -36,6 +36,7 @@ export const EditField: React.FC<Props> = ({
       onBlur={onBlurHandler}
       onKeyUp={onKeyUpHandler}
       onChange={onChangeHandler}
+      autoFocus={true}
     />
   );
 };

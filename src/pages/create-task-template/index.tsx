@@ -15,7 +15,7 @@ import {
   StyledInputWithButton,
 } from '@/pages/create-task-template/styled';
 import { createTaskCategory } from '@/store/task-categories/slice';
-import { Category, Task } from '@/types/index';
+import { Task } from '@/types/index';
 import { filterTaskById, findTaskById } from '@/utils/tasks';
 
 export const CreateTaskTemplate = () => {
@@ -83,7 +83,7 @@ export const CreateTaskTemplate = () => {
   };
 
   const saveTaskToCategory = () => {
-    const taskCategory: Category = {
+    const taskCategory = {
       category,
       description,
       tasksList,

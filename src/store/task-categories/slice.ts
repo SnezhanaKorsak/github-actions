@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { Category, CategoryInfo, Task } from '@/types/index';
 import { getRandomColor } from '@/utils/get-random-color';
+import { findTaskById } from '@/utils/tasks';
 
 type TaskCategoriesState = {
   [key: string]: CategoryInfo;
@@ -53,6 +54,38 @@ const taskCategoriesSlice = createSlice({
       const { category, description } = action.payload;
       state.data[category].description = description;
     },
+    changeTaskNameInCategory: (
+      state,
+      action: PayloadAction<{
+        category: string;
+        newTaskName: string;
+        taskId: string;
+      }>,
+    ) => {
+      const { category, newTaskName, taskId } = action.payload;
+      const tasksList = state.data[category].tasks;
+      const editableTask = findTaskById(tasksList, taskId);
+
+      if (editableTask) {
+        editableTask.name = newTaskName;
+      }
+    },
+    changeTaskStatusInCategory: (
+      state,
+      action: PayloadAction<{
+        category: string;
+        newTaskStatus: boolean;
+        taskId: string;
+      }>,
+    ) => {
+      const { category, newTaskStatus, taskId } = action.payload;
+      const tasksList = state.data[category].tasks;
+      const editableTask = findTaskById(tasksList, taskId);
+
+      if (editableTask) {
+        editableTask.status = newTaskStatus;
+      }
+    },
   },
 });
 
@@ -61,5 +94,7 @@ export const taskCategoriesReducer = taskCategoriesSlice.reducer;
 export const {
   createTaskCategory,
   changeCategoryDescription,
+  changeTaskNameInCategory,
+  changeTaskStatusInCategory,
   addTaskToCategory,
 } = taskCategoriesSlice.actions;
