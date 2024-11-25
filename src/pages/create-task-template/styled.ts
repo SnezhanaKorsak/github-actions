@@ -5,7 +5,7 @@ type StyledInputProps = {
 };
 
 export const StyledContainer = styled.div`
-  width: 400px;
+  width: 70%;
   height: 500px;
   display: flex;
   position: relative;

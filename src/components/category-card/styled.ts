@@ -8,6 +8,8 @@ export const StyledCategoryButton = styled.button`
   width: 100px;
   height: 100px;
   background-color: transparent;
+  margin-top: ${({ theme }) => theme.spaces['l']}px;
+  margin-right: ${({ theme }) => theme.spaces['l']}px;
   color: ${({ theme }) => theme.colors.white};
   font-weight: ${({ theme }) => theme.weights['bold']};
   font-size: ${({ theme }) => theme.fontSizes['xsmall']}px;

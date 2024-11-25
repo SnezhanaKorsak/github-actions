@@ -55,22 +55,32 @@ export const CreateTaskTemplate = () => {
   };
 
   const changeTaskName = (newTaskName: string, taskId: string) => {
-    const editableTask = findTaskById(tasksList, taskId);
-    const filteredTask = filterTaskById(tasksList, taskId);
+    const foundTask = findTaskById(tasksList, taskId);
 
-    if (editableTask) {
-      editableTask.name = newTaskName;
-      setTasksList([...filteredTask, editableTask]);
+    if (foundTask) {
+      const editableTask = {
+        ...foundTask,
+        name: newTaskName,
+      };
+
+      setTasksList((prevState) =>
+        prevState.map((task) => (task.id === taskId ? editableTask : task)),
+      );
     }
   };
 
   const changeTaskStatus = (newTaskStatus: boolean, taskId: string) => {
-    const editableTask = findTaskById(tasksList, taskId);
-    const filteredTask = filterTaskById(tasksList, taskId);
+    const foundTask = findTaskById(tasksList, taskId);
 
-    if (editableTask) {
-      editableTask.status = newTaskStatus;
-      setTasksList([...filteredTask, editableTask]);
+    if (foundTask) {
+      const editableTask = {
+        ...foundTask,
+        status: newTaskStatus,
+      };
+
+      setTasksList((prevState) =>
+        prevState.map((task) => (task.id === taskId ? editableTask : task)),
+      );
     }
   };
 
