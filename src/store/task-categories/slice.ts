@@ -33,18 +33,18 @@ const taskCategoriesSlice = createSlice({
         state.data[category] = {
           title: category,
           description,
-          tasks: tasksList,
+          tasks: tasksList.length != 0 ? tasksList : [],
           bgColor: getRandomColor(),
         };
       }
     },
     addTaskToCategory: (
       state,
-      action: PayloadAction<{ category: string; tasks: Task[] }>,
+      action: PayloadAction<{ category: string; task: Task }>,
     ) => {
-      const { category, tasks } = action.payload;
-      if (state.data) {
-        state.data[category].tasks.push(...tasks);
+      const { category, task } = action.payload;
+      if (category in state.data) {
+        state.data[category].tasks.push(task);
       }
     },
     changeCategoryDescription: (

@@ -1,18 +1,16 @@
 import { ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import { AddNewTaskFieldComponent } from '@/components/add-new-task-field';
 import { DoneButton } from '@/components/buttons/done-button';
 import { ExitButton } from '@/components/buttons/exit-botton';
 import { TaskCheckbox } from '@/components/task-checkbox';
 import { useAppDispatch } from '@/hooks/redux';
 import {
-  StyledAddTaskButton,
   StyledContainer,
   StyledField,
   StyledInput,
   StyledInputButtonBlock,
-  StyledInputIconBlock,
-  StyledInputWithButton,
 } from '@/pages/create-task-template/styled';
 import { createTaskCategory } from '@/store/task-categories/slice';
 import { Task } from '@/types/index';
@@ -113,17 +111,11 @@ export const CreateTaskTemplate = () => {
         />
       </StyledField>
 
-      <StyledField>
-        Task:
-        <StyledInputIconBlock>
-          <StyledInputWithButton
-            type="text"
-            value={taskName}
-            onChange={onChangeTaskNameInput}
-          />
-          <StyledAddTaskButton onClick={addTask}>+</StyledAddTaskButton>
-        </StyledInputIconBlock>
-      </StyledField>
+      <AddNewTaskFieldComponent
+        taskName={taskName}
+        onChange={onChangeTaskNameInput}
+        addTask={addTask}
+      />
 
       <TaskCheckbox
         items={tasksList}

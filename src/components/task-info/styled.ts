@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
-  width: 100%;
-  height: 500px;
+  width: 70%;
+  min-height: 500px;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: start;
   border: 2px solid ${({ theme }) => theme.colors.secondaryAccent};
   border-radius: ${({ theme }) => theme.spaces['x']}px;
-  padding: ${({ theme }) => theme.spaces['3xl']}px;
+  padding: ${({ theme }) => theme.spaces['l']}px
+    ${({ theme }) => theme.spaces['2xl']}px;
 `;
 
 export const StyledTitle = styled.h1`
@@ -18,4 +19,10 @@ export const StyledTitle = styled.h1`
   margin-bottom: ${({ theme }) => theme.spaces['s']}px;
   line-height: ${({ theme }) => theme.fontSizes['medium']}px;
   text-align: center;
+`;
+
+export const StyledButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: ${({ theme }) => theme.spaces['2xl']}px;
 `;

@@ -38,7 +38,7 @@ export const CategoryDescription = ({ category, description }: Props) => {
   return (
     <>
       <StyledDescriptionHint>
-        Descriptions:
+        Description:
         <StyledButtonIcon onClick={onEditModeHandler}>
           <FontAwesomeIcon icon={faPenToSquare} />
         </StyledButtonIcon>
