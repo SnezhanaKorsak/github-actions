@@ -1,4 +1,4 @@
-export const index = (date: Date) => {
+export const dateFormat = (date: Date) => {
   const options: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',

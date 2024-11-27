@@ -7,13 +7,13 @@ import {
 } from '@/components/header/styled';
 import { useAppSelector } from '@/hooks/redux';
 import { allTasksCounterSelector } from '@/store/task-categories/selectors';
-import { index } from '@/utils/date-format';
+import { dateFormat } from '@/utils/date-format';
 
 export const Header = () => {
   const allTasksCounter = useAppSelector(allTasksCounterSelector);
 
   const today = new Date();
-  const formatedData = index(today);
+  const formatedData = dateFormat(today);
 
   return (
     <StyledHeader>
