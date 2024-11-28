@@ -71,16 +71,24 @@ export const TaskItem = ({
             changeTaskName={onChangeTaskNameHandler(id)}
           />
         ) : (
-          <StyledText status={status}>{name}</StyledText>
+          <StyledText data-testId="task-name" status={status}>
+            {name}
+          </StyledText>
         )}
       </StyledLabel>
       {!editMode && (
         <StyledIconContainer>
-          <StyledButton onClick={onEditMode}>
+          <StyledButton
+            data-testId="edit-task-name-button"
+            onClick={onEditMode}
+          >
             <FontAwesomeIcon icon={faPenToSquare} />
           </StyledButton>
 
-          <StyledButton onClick={deleteTaskHandler(id)}>
+          <StyledButton
+            data-testId="delete-task-button"
+            onClick={deleteTaskHandler(id)}
+          >
             <FontAwesomeIcon icon={faTrash} />
           </StyledButton>
         </StyledIconContainer>

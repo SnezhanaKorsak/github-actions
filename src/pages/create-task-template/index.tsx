@@ -101,7 +101,7 @@ export const CreateTaskTemplate = () => {
 
   return (
     <StyledContainer>
-      <StyledField>
+      <StyledField data-testId="form-category">
         Category:
         <StyledInput
           type="text"
@@ -109,15 +109,17 @@ export const CreateTaskTemplate = () => {
           onChange={onChangeCategory}
           onBlur={checkRequiredField}
           error={error}
+          data-testId="form-category-input"
         />
       </StyledField>
 
-      <StyledField>
+      <StyledField data-testId="form-description">
         Description:
         <StyledInput
           type="text"
           value={description}
           onChange={onChangeDescription}
+          data-testId="form-description-input"
         />
       </StyledField>
 

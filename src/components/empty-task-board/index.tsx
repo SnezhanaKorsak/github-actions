@@ -4,7 +4,9 @@ import { StyledText } from '@/components/empty-task-board/styled';
 export const EmptyTaskBoard = () => {
   return (
     <>
-      <StyledText>Create your first task!</StyledText>
+      <StyledText data-testId="empty-task-title">
+        Create your first task!
+      </StyledText>
       <CreateTaskButton />
     </>
   );

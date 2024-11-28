@@ -58,7 +58,9 @@ export const CategoryDescription = ({ category, description }: Props) => {
           autoFocus={true}
         />
       ) : (
-        <StyledDescription>{description}</StyledDescription>
+        <StyledDescription data-testId="task-info-description">
+          {description}
+        </StyledDescription>
       )}
     </>
   );

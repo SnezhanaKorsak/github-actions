@@ -37,6 +37,7 @@ export const EditField: React.FC<Props> = ({
       onKeyUp={onKeyUpHandler}
       onChange={onChangeHandler}
       autoFocus={true}
+      data-testId="edit-task-name-input"
     />
   );
 };

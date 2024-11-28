@@ -40,5 +40,9 @@ export const DoneButton: React.FC<Props> = ({
     navigate(RoutesPath.TaskBoard);
   };
 
-  return <StyledDoneButton onClick={handleClick}>Done</StyledDoneButton>;
+  return (
+    <StyledDoneButton data-testId="done-button" onClick={handleClick}>
+      Done
+    </StyledDoneButton>
+  );
 };

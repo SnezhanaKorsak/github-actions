@@ -13,7 +13,10 @@ export const CreateTaskButton = () => {
   };
 
   return (
-    <StyledCreateTaskButton onClick={handleClick}>
+    <StyledCreateTaskButton
+      onClick={handleClick}
+      data-testId="create-task-button"
+    >
       <FontAwesomeIcon icon={faPlus} />
     </StyledCreateTaskButton>
   );

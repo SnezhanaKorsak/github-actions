@@ -29,5 +29,5 @@ export const TaskCheckbox = ({
     );
   });
 
-  return <StyledWrapper>{itemsList}</StyledWrapper>;
+  return <StyledWrapper data-testId="task-checkbox">{itemsList}</StyledWrapper>;
 };

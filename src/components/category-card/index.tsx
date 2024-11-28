@@ -24,11 +24,16 @@ export const CategoryCard = ({ categoryInfo }: Props) => {
   };
 
   return (
-    <StyledCategoryButton onClick={onClickHandler}>
-      <StyledCategoryContainer bgColor={bgColor}>
+    <StyledCategoryButton
+      data-testId="category-button"
+      onClick={onClickHandler}
+    >
+      <StyledCategoryContainer data-testId="category-name" bgColor={bgColor}>
         {title}
       </StyledCategoryContainer>
-      <StyledTaskCount>{taskCount}</StyledTaskCount>
+      <StyledTaskCount data-testId="category-task-count">
+        {taskCount}
+      </StyledTaskCount>
     </StyledCategoryButton>
   );
 };

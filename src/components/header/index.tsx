@@ -18,11 +18,11 @@ export const Header = () => {
   return (
     <StyledHeader>
       <StyledLogo>Your Todo list</StyledLogo>
-      <StyledText>
+      <StyledText data-testId="header-task-count">
         you have
         <StyledTaskCount> {allTasksCounter} tasks</StyledTaskCount> !
       </StyledText>
-      <StyledData>{formatedData}</StyledData>
+      <StyledData data-testId="header-date">{formatedData}</StyledData>
     </StyledHeader>
   );
 };

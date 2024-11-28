@@ -25,7 +25,7 @@ export const AddNewTaskFieldComponent = ({
   };
 
   return (
-    <StyledField>
+    <StyledField data-testId="form-task">
       Task:
       <StyledInputIconBlock>
         <StyledInputWithButton
@@ -33,8 +33,11 @@ export const AddNewTaskFieldComponent = ({
           value={taskName}
           onChange={onChange}
           onKeyUp={onKeyUpHandler}
+          data-testId="form-task-input"
         />
-        <StyledAddTaskButton onClick={addTask}>+</StyledAddTaskButton>
+        <StyledAddTaskButton onClick={addTask} data-testId="add-task-button">
+          +
+        </StyledAddTaskButton>
       </StyledInputIconBlock>
     </StyledField>
   );

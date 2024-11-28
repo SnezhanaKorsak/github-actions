@@ -16,8 +16,8 @@ export const HomePage = () => {
   return (
     <>
       <img src={welcomeBanner} alt="welcom-banner" />
-      <StyledTitle>Manage your tasks</StyledTitle>
-      <StyledText>{description}</StyledText>
+      <StyledTitle data-testId="home-title">Manage your tasks</StyledTitle>
+      <StyledText data-testId="home-description">{description}</StyledText>
       <StyledButton onClick={handleClick}>Get started</StyledButton>
     </>
   );

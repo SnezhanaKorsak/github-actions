@@ -35,5 +35,5 @@
       "@/types/*": ["types/*"]
     }
   },
-  "include": ["src"]
+  "include": ["cypress", "src"]
 }
