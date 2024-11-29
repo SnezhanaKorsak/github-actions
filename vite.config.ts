@@ -5,6 +5,8 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
+  /** Настройки для деплоя приложения */
+  base: '/github-actions/',
   server: {
     port: 3000,
     strictPort: true,
