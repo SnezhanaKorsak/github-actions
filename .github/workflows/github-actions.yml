@@ -3,7 +3,7 @@ on:
   pull_request:
     types: [opened, edited]
     branches:
-      - main
+      - master
   workflow_dispatch:
   push:
     branches:
@@ -81,6 +81,10 @@ jobs:
           start: yarn dev
 
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     needs: cypress-tests
     steps:
