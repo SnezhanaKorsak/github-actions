@@ -16,4 +16,13 @@ export const StyledContainer = styled.div`
   align-items: center;
   padding: ${({ theme }) => theme.spaces['4xl']}px
     ${({ theme }) => theme.spaces['l']}px;
+
+  @media ${({ theme }) => theme.mediaBreakpoints.md} {
+    width: 100%;
+  }
+
+  @media ${({ theme }) => theme.mediaBreakpoints.sm} {
+    width: 100%;
+    padding: ${({ theme }) => theme.spaces['l']}px;
+  }
 `;

@@ -18,6 +18,15 @@ const spaces = {
   '8xl': 128,
 };
 
+const mediaBreakpoints = {
+  sm: '(max-width: 439px)',
+  md: '(min-width: 440px) and (max-width: 1023px)',
+  lg: '(min-width: 1024px) and (max-width: 1279px)',
+  xl: '(min-width: 1280px) and (max-width: 1439px)',
+  xxl: '(min-width: 1440px) and (max-width: 1919px)',
+  xxxl: '(min-width: 1920px)',
+};
+
 const fontSizes = {
   xxsmall: 18,
   xsmall: 20,
@@ -51,6 +60,7 @@ export const baseTheme = {
   primaryFont,
   secondaryFont,
   spaces,
+  mediaBreakpoints,
   fontSizes,
   weights,
   colors: {

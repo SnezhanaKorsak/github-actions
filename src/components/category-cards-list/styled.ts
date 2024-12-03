@@ -11,4 +11,8 @@ export const StyledCategoryContainer = styled.div`
   flex-wrap: wrap;
   width: 60%;
   min-height: 70%;
+
+  @media ${({ theme }) => theme.mediaBreakpoints.sm} {
+    width: 90%;
+  }
 `;

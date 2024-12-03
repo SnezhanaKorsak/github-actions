@@ -24,6 +24,11 @@ export const StyledContainer = styled.div`
     width: 5px;
     background-color: transparent;
   }
+
+  @media ${({ theme }) => theme.mediaBreakpoints.sm} {
+    width: 100%;
+    padding: ${({ theme }) => theme.spaces['l']}px;
+  }
 `;
 
 export const StyledInput = styled.input<StyledInputProps>`

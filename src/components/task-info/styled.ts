@@ -11,6 +11,10 @@ export const StyledContainer = styled.div`
   border-radius: ${({ theme }) => theme.spaces['x']}px;
   padding: ${({ theme }) => theme.spaces['l']}px
     ${({ theme }) => theme.spaces['2xl']}px;
+
+  @media ${({ theme }) => theme.mediaBreakpoints.sm} {
+    width: 100%;
+  }
 `;
 
 export const StyledTitle = styled.h1`

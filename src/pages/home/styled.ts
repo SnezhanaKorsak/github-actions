@@ -7,6 +7,22 @@ export const StyledTitle = styled.h1`
   margin-top: ${({ theme }) => theme.spaces['l']}px;
 `;
 
+export const StyledImage = styled.img`
+  width: 450px;
+
+  @media ${({ theme }) => theme.mediaBreakpoints.lg} {
+    width: 300px;
+  }
+
+  @media ${({ theme }) => theme.mediaBreakpoints.md} {
+    width: 300px;
+  }
+
+  @media ${({ theme }) => theme.mediaBreakpoints.sm} {
+    width: 100%;
+  }
+`;
+
 export const StyledText = styled.p`
   width: 50%;
   padding-top: ${({ theme }) => theme.spaces['s']}px;
@@ -15,6 +31,14 @@ export const StyledText = styled.p`
   line-height: ${({ theme }) => theme.fontSizes['small']}px;
   color: ${({ theme }) => theme.colors.accentTextColor};
   text-align: center;
+
+  @media ${({ theme }) => theme.mediaBreakpoints.md} {
+    width: 100%;
+  }
+
+  @media ${({ theme }) => theme.mediaBreakpoints.sm} {
+    width: 100%;
+  }
 `;
 
 export const StyledButton = styled.button`
