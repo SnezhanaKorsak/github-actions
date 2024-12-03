@@ -4,6 +4,7 @@ on:
     types: [opened, edited]
     branches:
       - master
+  workflow_dispatch:
   push:
     branches:
       - main
